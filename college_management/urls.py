@@ -15,8 +15,24 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
+
+schema_view = get_schema_view(
+    openapi.Info(
+        title="College Management Documentation",
+        default_version='v1'
+    ),
+    public=True
+)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/college/', include('college.urls')),
+    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='api-docs'),
+    # path('re-docs/', schema_view.with_ui('redocs', cache_timeout=0), name='api-re-docs'),
+
 ]
+
+
