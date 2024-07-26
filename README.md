@@ -1,4 +1,4 @@
-# Younote
+# College-management
 
 ### Built With
 * [Django](https://www.djangoproject.com/) - Base Web Framework
