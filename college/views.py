@@ -72,7 +72,20 @@ class StudentClassView(ModelViewSet):
 
     queryset = StudentClass.objects.all()
     serializer_class = StudentClassSerializer
+
+    def create(self, request, *args, **kwargs):
+        # TODO: make sure student's units is less than 20 
+        # TODO: make sure select and remove class is active
+        # TODO: make sure student is adding class for it's self, not others
+        return super().create(request, *args, **kwargs)
     
+    def list(self, request, *args, **kwargs):
+        # TODO: make sure student can just see his/her class and no one else
+        return super().list(request, *args, **kwargs)
+    
+    def retrieve(self, request, *args, **kwargs):
+        # TODO: make sure student can just see his/her class and no one else
+        return super().retrieve(request, *args, **kwargs)
 
 
 
