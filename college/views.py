@@ -26,8 +26,8 @@ class SemesterView(ModelViewSet):
         'destroy': 'can_delete_semester',
         'create': 'can_add_semester',
     }
-    
     permission_classes = [CollegeAuthentication]
+
     queryset = Semester.objects.all()
     serializer_class = SemesterSerializer
 
@@ -40,6 +40,8 @@ class CourseView(ModelViewSet):
         'destroy': 'can_delete_course',
         'create': 'can_add_course',
     }
+    permission_classes = [CollegeAuthentication]
+
     queryset = Course.objects.all()
     serializer_class = CourseSerializer
 
@@ -52,6 +54,8 @@ class OfferCourseView(ModelViewSet):
         'destroy': 'can_delete_offer_course',
         'create': 'can_add_offer_course',
     }
+    permission_classes = [CollegeAuthentication]
+
     queryset = OfferCourse.objects.all()
     serializer_class = OfferCourseSerializer
 
@@ -64,9 +68,11 @@ class StudentClassView(ModelViewSet):
         'destroy': 'can_delete_student_class',
         'create': 'can_add_student_class',
     }
+    permission_classes = [CollegeAuthentication]
+
     queryset = StudentClass.objects.all()
     serializer_class = StudentClassSerializer
-
+    
 
 
 
